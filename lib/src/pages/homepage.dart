@@ -5,11 +5,11 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Informativo sobre jogos'),
+        title: const Text('Conheça alguns jogos que eu (humilde programador) gosto muito de jogar :) '),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(32.0),
+      body: Padding(        
+        padding: const EdgeInsets.all(32.0),        
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,

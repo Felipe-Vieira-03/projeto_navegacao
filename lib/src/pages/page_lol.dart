@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_navegacao_flutter/src/pages/widgets/widget_lol.dart';
 
 class LolInfoPage extends StatefulWidget {
   @override
@@ -6,52 +7,45 @@ class LolInfoPage extends StatefulWidget {
 }
 
 class _LolInfoPageState extends State<LolInfoPage> {
+  int _selectedIndex = 0;
+
+  static List<Widget> _widgetOptions = <Widget>[
+    WidgetsLol.buildChampionsTab(),
+    WidgetsLol.buildItemsTab(),
+    WidgetsLol.buildRunesTab(),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('League of Legends Info'),
+        title: Text('Conheça o League Of Legends'),
       ),
-      body: DefaultTabController(
-        length: 3, // Número de abas
-        child: Column(
-          children: <Widget>[
-            Container(
-              constraints: BoxConstraints.expand(height: 50),
-              child: TabBar(
-                tabs: [
-                  Tab(text: 'Campeões'),
-                  Tab(text: 'Itens'),
-                  Tab(text: 'Runas'),
-                ],
-              ),
-            ),
-            Expanded(
-              child: TabBarView(
-                children: [
-                  // Conteúdo da aba Campeões
-                  Container(
-                    child: Center(
-                      child: Text('Informações sobre Campeões'),
-                    ),
-                  ),
-                  // Conteúdo da aba Itens
-                  Container(
-                    child: Center(
-                      child: Text('Informações sobre Itens'),
-                    ),
-                  ),
-                  // Conteúdo da aba Runas
-                  Container(
-                    child: Center(
-                      child: Text('Informações sobre Runas'),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+      body: _widgetOptions.elementAt(_selectedIndex),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people),
+            label: 'Campeões',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.inventory),
+            label: 'Itens',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.auto_awesome),
+            label: 'Runas',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Theme.of(context).primaryColor,
+        onTap: _onItemTapped,
       ),
     );
   }

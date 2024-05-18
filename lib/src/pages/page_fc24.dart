@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:projeto_navegacao_flutter/src/pages/widgets/widget_fc24.dart';
+
 
 class FC24InfoPage extends StatefulWidget {
   @override
@@ -8,10 +10,10 @@ class FC24InfoPage extends StatefulWidget {
 class _Fc24InfoPageState extends State<FC24InfoPage> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text('Informações Gerais do FC24'),
-    Text('Modos de Jogo'),
-    Text('Carreiras'),
+  static List<Widget> _widgetOptions = <Widget>[
+    WidgetsFC24.buildInfoTab(),
+    WidgetsFC24.buildGameModesTab(),
+    WidgetsFC24.buildCareersTab(),
   ];
 
   void _onItemTapped(int index) {
@@ -24,7 +26,7 @@ class _Fc24InfoPageState extends State<FC24InfoPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('FC24 Info'),
+        title: Text('Conheça o FC 24'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
@@ -33,15 +35,15 @@ class _Fc24InfoPageState extends State<FC24InfoPage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.info),
-            label: 'Informações',
+            label: 'Sobre o Jogo',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.sports_soccer),
-            label: 'Modos de Jogo',
+            label: 'Jogabilidade',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.work),
-            label: 'Carreiras',
+            label: 'Modo Carreira',
           ),
         ],
         currentIndex: _selectedIndex,
