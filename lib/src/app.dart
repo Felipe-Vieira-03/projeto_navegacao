@@ -5,7 +5,6 @@ import 'package:projeto_navegacao_flutter/src/pages/page_lol.dart';
 import 'package:projeto_navegacao_flutter/src/pages/page_fc24.dart';
 import 'package:projeto_navegacao_flutter/src/pages/page_contato.dart';
 
-
 class App extends StatelessWidget {
   const App({super.key});
 
@@ -13,11 +12,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Zed´s GameHouse',
+      theme: ThemeData(scaffoldBackgroundColor: Colors.grey.shade400),
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        textTheme: Typography.blackCupertino,
-        primarySwatch: Colors.blue,
-      ),
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),

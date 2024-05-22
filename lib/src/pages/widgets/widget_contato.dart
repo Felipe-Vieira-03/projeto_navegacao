@@ -17,8 +17,8 @@ class WidgetsContact {
             ),
             SizedBox(height: 20),
             Image.asset(
-              'images/about/sobrenos.jpg',
-              height: 200,
+              'images/about/aboutus.jpg',
+              height: 500,
               fit: BoxFit.cover,
             ),
             SizedBox(height: 20),
@@ -35,6 +35,14 @@ class WidgetsContact {
             Text(
               '• Felipe Silva - Aluno que fez o projeto\n• Esdras - Professor responsável por atribuir a tarefa e auxiliar na execução\n ',
               style: TextStyle(fontSize: 18),
+            ),
+            Row(
+              children: [
+                Text('• '),
+                Icon(Icons.notifications_paused),
+                Icon(Icons.e_mobiledata),
+                Icon(Icons.play_arrow_outlined)
+              ],
             ),
           ],
         ),

@@ -5,11 +5,17 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Conheça alguns jogos que eu (humilde programador) gosto muito de jogar :) '),
+        title: const Text(
+          'Conheça alguns jogos que eu (humilde programador) gosto muito de jogar :) ',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
         centerTitle: true,
+        backgroundColor: Colors.black,
       ),
-      body: Padding(        
-        padding: const EdgeInsets.all(32.0),        
+      body: Padding(
+        padding: const EdgeInsets.all(32.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -18,28 +24,28 @@ class HomePage extends StatelessWidget {
               context,
               'Valorant',
               '/page_valorant',
-              Colors.red, 
+              Colors.red,
             ),
             SizedBox(height: 20),
             _buildButton(
               context,
               'League of Legends',
               '/page_lol',
-              Colors.blue, 
+              Colors.blue,
             ),
             SizedBox(height: 20),
             _buildButton(
               context,
               'EA FC24',
               '/page_fc24',
-              Colors.green, 
+              Colors.green,
             ),
             SizedBox(height: 20),
             _buildButton(
               context,
               'Contato / Sobre nós',
               '/contato',
-              Colors.grey, 
+              Colors.grey,
             ),
           ],
         ),
@@ -47,14 +53,16 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildButton(BuildContext context, String text, String route, Color color) {
+  Widget _buildButton(
+      BuildContext context, String text, String route, Color color) {
     return ElevatedButton(
       onPressed: () {
         Navigator.of(context).pushNamed(route);
       },
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(color),
-        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.all(20)),
+        padding:
+            MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.all(20)),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
